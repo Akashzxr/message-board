@@ -1,8 +1,18 @@
 extends layout
 
 block content
- div 
-  each val,key in messages
-    p= val.text
-    p= val.user 
-    p= val.added
+   header  
+    h1= "Message Board"
+    p= "speak free to the world"
+   
+   main  
+     addbutton 
+      a(href=`http://localhost:${process.env.PORT || 3000}/new`)
+       button(id="add-btn")= "click to write message" 
+
+     section.message-container
+       each val in messages
+         div 
+          h2= val.user
+          h4= val.text 
+          p= val.added

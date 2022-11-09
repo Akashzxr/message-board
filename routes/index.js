@@ -1,15 +1,19 @@
 var express = require('express');
 var router = express.Router();
+const moment = require('moment');
+
+let date = moment().startOf('day').fromNow();
+let date2 = moment().startOf('hour').fromNow();
 const messages =[
   {
     text:"hi",
     user:"amando",
-    added: new Date()
+    added: date
   },
   {
     text:"helo every one",
     user:"baby",
-    added: new Date()
+    added: date2
   }
 ];
 
@@ -24,7 +28,9 @@ router.post('/new',function(req,res, next){
   messages.push({
     text: messageText,
     user: username,
-    added: new Date()
+    added: moment()
+    .startOf('hour' - 1)
+    .fromNow(),
   })
   res.redirect('/');
 })
