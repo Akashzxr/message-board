@@ -1,0 +1,8 @@
+extends layout 
+
+block  content 
+   h= "author"
+   form(method="post",action="/new") 
+     input(type="text",name="user")
+     input(type="text", name="messageText")
+     button(type="submit",action='/new')= "submit"

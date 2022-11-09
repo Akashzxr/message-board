@@ -1,0 +1,8 @@
+extends layout
+
+block content
+ div 
+  each val,key in messages
+    p= val.text
+    p= val.user 
+    p= val.added
